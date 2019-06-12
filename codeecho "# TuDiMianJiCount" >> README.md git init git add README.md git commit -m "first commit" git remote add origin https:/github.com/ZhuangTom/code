@@ -1,0 +1,32 @@
+echo "# TuDiMianJiCount" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/ZhuangTom/TuDiMianJiCount.git
+git push -u origin master
+#include<iostream>
+#include<cmath>
+using namespace std;
+void main()
+{
+	int N;
+	double x[10] = { 0 };
+	double y[10] = { 0 };
+	cout << "请输入N:" << endl;
+	cin >> N;
+	for (int i = 0; i < N; i++)
+	{
+		cout << "请输入第" << i + 1 << "点坐标：" << endl;
+		cin >> x[i] >> y[i];
+	}
+	double p = 0;
+	double s = 0;
+	for(int j=0;j<N;j++)
+	{
+		p = fabs(1.0 / 2 * (x[j] * y[j + 1] - y[j] * x[j + 1])) + p;
+		s = sqrt(pow((x[j] - x[j + 1]), 2) + pow((y[j] - y[j + 1]), 2)) + s;
+	}
+	cout << "面积p=" << p << endl;
+	cout << "周长s=" << s << endl;
+	system("pause");
+}
